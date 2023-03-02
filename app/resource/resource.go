@@ -20,11 +20,11 @@ type Resources struct {
 	SecretList 	[]v1.Secret
 
 	// var map[string]
-	Depl																[]app.DeploymentList
+	Depl																[]app.Deployment
 	StorageClassList										[]storage.StorageClass
-	ConfigMapList												[]v1.ConfigMap
+	ConfigMapsList												[]v1.ConfigMap
 	IngressList													[]networking.Ingress
-	ReleList														[]rbac.Role
+	RoleList														[]rbac.Role
 	RoleBindingList											[]rbac.RoleBinding
 	ClusterRoleList											[]rbac.ClusterRole
 	ClusterRoleBindingList							[]rbac.ClusterRoleBinding
@@ -33,7 +33,7 @@ type Resources struct {
 	SvcAccList													[]v1.ServiceAccount
 	CronJobList													[]batchv1beta1.CronJob
 	JobList															[]batchv1.Job
-	PersistentVolumeClaimList						[]v1.PersistentVolumeClaim
+	PersistentVolumeClaimsList						[]v1.PersistentVolumeClaim
 	MutatingWebhookConfigurationList 		[]admissionregistration.MutatingWebhookConfiguration
 	ValidatingWebhookConfigurationList	[]admissionregistration.ValidatingWebhookConfiguration
 	HelmList														map[string]map[string]string

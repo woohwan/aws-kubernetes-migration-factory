@@ -97,14 +97,15 @@ func (c Cluster) GetRegistry_Names() []string {
 // retrieve cluster client
 func get_cluster_client(context, kubeconfigPath string) (*rest.Config, error) {
 	return clientcmd.NewNonInteractiveDeferredLoadingClientConfig(
-		&clientcmd.ClientConfigLoadingRules{ ExplicitPath: kubeconfigPath},
-		&clientcmd.ConfigOverrides {
+		&clientcmd.ClientConfigLoadingRules{ExplicitPath: kubeconfigPath},
+		&clientcmd.ConfigOverrides{
 			CurrentContext: context,
 		}).ClientConfig()
 }
 
 // Generate client for the source cluster config passed
 func (c *Cluster) Generate_cluster_client()  {
+	// fmt.Println("context: ", c.Context, " , config path: ", c.Kubeconfig_path)
 	config, err := get_cluster_client(c.Context, c.Kubeconfig_path)
 	if err != nil {
 		fmt.Printf("The kubeconfig cannot be loaded: %v\n", err)
